@@ -3,4 +3,5 @@ nltk
 inflect
 distance
 flask
+pandas
 flask_socketio

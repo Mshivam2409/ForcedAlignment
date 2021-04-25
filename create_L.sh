@@ -1,7 +1,3 @@
-# create_L.sh
-# Amir Harati, July 2019
-
-
 input_segment_file=$1
 lang_src=$2
 mkdir -p $lang_src

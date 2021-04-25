@@ -1,5 +1,3 @@
-# create_new_lexicon.py
-# Amir Harati, july 2019
 """
     create a new leixcon by adding g2p outputs to input leixcon.
 """

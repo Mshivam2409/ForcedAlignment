@@ -23,4 +23,6 @@ RUN mkdir server
 WORKDIR /home/server
 COPY ./ ./
 RUN bash build_model.sh
+RUN python -m pip install -r requirements.txt
+RUN mkdir -p s3/audio s3/text s3/faligned
 CMD [ "python", "server.py" ]
