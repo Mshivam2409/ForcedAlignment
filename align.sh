@@ -1,17 +1,4 @@
 #!/bin/bash
-# Program: align.sh
-# Amir Harati April 2018
-#
-# script to align (and enrich) the transcript to given audio.
-# This script uses Kaldi and Aspire model.
-# It generate a simple LM and create a new HCLG network and then
-# run the recognizer to align the input speech to input transcript.
-# transcripts expands by adding laughter and noise markers.
-# In the output alignment, OOV words will be replaced by <unk> marker.
-#
-# Example Use case:
-#
-
 source path.sh
 
 # input transcript (can be nbest)
@@ -29,6 +16,9 @@ out_phone_ctm=$5
 out_state_seq=$6
 
 likelihod_per_frame=$7
+
+
+out_vtt=$8
 
 #rm -rf temp
 mkdir -p temp
@@ -90,3 +80,4 @@ python scripts/convert_ctm.py -i temp/out/phone_alined.ctm  -w temp/lang/phones.
 copy-int-vector ark:temp/out/1.ali ark,t:temp/out/transids.txt
 show-transitions temp/lang/phones.txt exp/tdnn_7b_chain_online/final.mdl >  temp/out/transitions.txt
 python map_kaldi_transitionids.py  --input temp/out/transids.txt  --input_transitions temp/out/transitions.txt  --output $out_state_seq
+python scripts/convert_vtt.py --input_ctm $out_ctm --output_vtt $out_vtt

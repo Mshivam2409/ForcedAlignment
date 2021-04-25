@@ -1,8 +1,3 @@
-# extract_likelihood_per_frame.py
-# Amir Harati, AUg 2019
-"""
-    Extract the likelihood per frame
-"""
 import sys
 import re
 pat = ".*Overall\s+likelihood\s+per\s+frame\s+was\s+(.*)\s+per.*"

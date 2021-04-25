@@ -1,5 +1,3 @@
-# map_kaldi_transitionids.py
-# Amir Harati, July 2019
 """
     map transitionids into phoneme states.
 """
@@ -46,14 +44,11 @@ def main():
         if x is not None:
             curr_phoneme = x.group(1).split("_")[0]
             curr_state = x.group(2)
-        #print(line)
-        #print(y)
         if y is not None:
             ti = y.group(1)
             #print(ti)
             trans2state[ti] = curr_phoneme + "_" + curr_state
 
-    #print(trans2state)
     with open(args.output, "w") as fo:
         for key in input_trs:
             fo.write(key + " ")

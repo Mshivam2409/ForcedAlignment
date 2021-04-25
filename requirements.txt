@@ -2,3 +2,5 @@ numpy
 nltk
 inflect
 distance
+flask
+flask_socketio
