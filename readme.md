@@ -17,6 +17,8 @@
 
 ### Docker
 
+- Build and run the provided dockerfile (It can take a long time to build).
+
 ---
 
 ## Usage
@@ -25,9 +27,12 @@
 - Navigate to http://localhost:5000 to view the html form.
 - Enter the quiz bowl text as well as the audio file and click on upload.
 - Also add a unique id to reference this question.
-- Upon successful response, enter the same id in the play audio input box and click on play. The text would appear as the audio is being spoken.
-- You can check out the `id.vtt` files generated for every audio as a universal `vtt` format subtitle file for easy usage.
+- Upon successful response, enter the same id in the play audio input box and click on play. The text would appear as the audio is being spoken with the current word being highlighted.
 - Unknown words would appear as [noise].
+- You can check out the `.vtt` files generated for every audio as a universal `vtt` format subtitle file for easy usage.
+- You can use the audio and transcipt in example folder for testing.
+
+![View](img/ss.png)
 
 ---
 
@@ -35,10 +40,20 @@
 
 ### Qanta & QB-Interface
 
-- I was able to get qanta up and running as was able to fix some issues in the way. (See )
+- I was able to get qanta up and running as was able to fix some issues in the way.
 
-- I achieved an accuracy of ~47% on DAN classifier. I have attached a notebook in qanta folder as a example installation of qanta.
+  - Qanta Config Mismatch [here](https://piazza.com/class/kmqazoqjj5g3nj?cid=10)
 
-- I tried intergrating with the interface, but I ran into several issues _(also due to abscence of a readme)_ while running the qb_interface, some were :
+  - NLTK Download [here](https://piazza.com/class/kmqazoqjj5g3nj?cid=11)
 
-- The work here is modular i.e. additional 3 routes for a web server and the frontend is built using ReactJS so there's only need to import additional scripts and add a `<div>` tag for react render. So I beleive it could be easily integrated into qb_interface.
+  - StopIteration error for torchtext in python ^3.7
+
+- I achieved an accuracy of ~47% on DAN classifier. The notebook is available [here](https://gist.github.com/Mshivam2409/2b1bf7b87474011f8e4b4e2399f826d0) as a example installation of qanta.
+
+- I tried intergrating with the interface, but I ran into several issues _(also due to abscence of a readme)_ while running the qanta & qb_interface, some were :
+
+  - Twisted Web now only requires the path of folder i.e. `web` instead of HTML for [these lines](https://github.com/ihsgnef/qb_interface/blob/11371220a8a00f6543fcad35a75b075ca8d0dcf4/server.py#L765)
+
+  - The db.sqlite downloaded using dataset.py has only 7 columns causing [this](https://github.com/ihsgnef/qb_interface/blob/11371220a8a00f6543fcad35a75b075ca8d0dcf4/db.py#L21) to fail. I started with an empty sqlite db which surpassed this error but I again ran into more.
+
+- The work here is modular i.e. additional 3 routes for a web server and the frontend is built using ReactJS so there's only need to import additional scripts and add a `<div id=root>` tag for react render. So I beleive it could be easily integrated into qb_interface once the above issues are fixed.

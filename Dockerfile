@@ -9,9 +9,10 @@ RUN cd srilm-1.7.3 && \
 ENV PATH "$PATH:/opt/srilm-1.7.3/bin/i686-m64"
 RUN mkdir /opt/server
 WORKDIR /opt/server
+RUN apt update
+RUN apt install -y python3-pip
 COPY ./ ./
-RUN bash build_model.sh
-RUN apt install -y python3 python3-pip
 RUN python3 -m pip install -r requirements.txt
 RUN mkdir -p s3/audio s3/text s3/faligned
+RUN bash build_model.sh
 CMD [ "python3", "server.py" ]
