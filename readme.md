@@ -17,7 +17,7 @@
 
 ### Docker
 
-- Build and run the provided dockerfile (It can take a long time to build).
+- Build and run the provided dockerfile _(It can take a long time to build. Prebuilt images like one in packages may not work due to different platforms)_.
 
 ---
 
@@ -33,6 +33,10 @@
 - You can use the audio and transcipt in example folder for testing.
 
 ![View](img/ss.png)
+
+### Demo 
+
+https://user-images.githubusercontent.com/53910337/116009515-cd238000-a637-11eb-98ab-dd02f89b0b3f.mp4
 
 ---
 
