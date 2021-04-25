@@ -8,3 +8,20 @@ RUN cd kaldi/tools && \
     extras/check_dependencies.sh && \
     make || true
 RUN echo "Dependencies Checked!"
+RUN cd kaldi/tools && \
+    extras/install_mkl.sh
+RUN cd kaldi/src  && \
+    ./configure  && \
+    make depend  && \
+    make
+COPY downloads/srilm-1.7.3.zip /
+RUN unzip srilm-1.7.3.zip
+RUN chmod 777 -R srilm-1.7.3/
+RUN cd srilm-1.7.3 && \
+    make NO_TCL=1 MACHINE_TYPE=i686-m64 World
+RUN chmod 777 -R kaldi/
+ENV PATH "$PATH:/srilm/bin/i686-m64"
+RUN mkdir /home/server
+WORKDIR /home/server
+COPY ./ ./
+RUN bash build_model.sh
