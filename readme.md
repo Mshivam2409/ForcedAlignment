@@ -63,4 +63,5 @@ _It uses the files given in example folder_
   - The db.sqlite downloaded using dataset.py has only 7 columns causing [this](https://github.com/ihsgnef/qb_interface/blob/11371220a8a00f6543fcad35a75b075ca8d0dcf4/db.py#L21) to fail. I started with an empty sqlite db which surpassed this error but I again ran into more.
 
 - The work here is modular i.e. additional 3 routes for a web server and the frontend is built using ReactJS so there's only need to import additional scripts and add a `<div id=root>` tag for react render. So I beleive it could be easily integrated into qb_interface once the above issues are fixed.
+- The qb_interface uses websocket protocol for transfering `text` data. However I beleive websockets are not that efficient in transfering audio owing to higher latency. A better protocol like `WebRTC/MPEG-DASH` could be implemented for the same. 
 
