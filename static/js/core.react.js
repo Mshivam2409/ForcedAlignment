@@ -72,7 +72,14 @@ const SubmitForm = (e) => {
   const formData = new FormData(e.target);
   const body = {};
   formData.forEach((value, property) => (body[property] = value));
-  axios.post("/upload", formData);
+  axios
+    .post("/upload", formData)
+    .then(() => {
+      window.alert("Success!");
+    })
+    .catch(() => {
+      "Failed";
+    });
 };
 
 const Uploader = () => {

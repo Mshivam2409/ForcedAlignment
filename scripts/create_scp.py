@@ -1,7 +1,3 @@
-"""
-  A script to generate scp and spk2utt for Kaldi.
-  Amir Harati April 2018
-"""
 import argparse
 from shutil import copyfile
 
@@ -24,9 +20,8 @@ def main():
     parts = args.input_wav.split("/")
     path = "/".join(parts[0:-1])
     base = parts[-1]
-    #base = parts[0]
-    kaldi_base = "xxx_" + base  # xxx is the speaker
-    new_file = kaldi_base # + ".wav"
+    kaldi_base = "xxx_" + base  
+    new_file = kaldi_base 
 
     copyfile(args.input_wav, args.out_dir + "/" + new_file)
     spk2utr = "xxx " + kaldi_base

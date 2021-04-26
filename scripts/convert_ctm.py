@@ -1,7 +1,3 @@
-"""
-  A script to convert ctm with word_ids to ctm with words
-  Amir Harati April 2018
-"""
 import argparse
 from shutil import copyfile
 

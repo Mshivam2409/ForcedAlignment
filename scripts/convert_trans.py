@@ -1,13 +1,6 @@
-"""
-  A script to generate refined transcriptions as input to Kaldi.
-  The goal is to replace oovs with proper symbols and also add alternatives.
-  This script is written with Aspire model in mind (having laughter, noise) markers.
-  Amir Harati April 2018
-"""
 import argparse
 import string 
 # reptation of actual transcription
-# We might want to make it sensetive to score.
 R = 6
 
 def main():
