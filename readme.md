@@ -52,7 +52,7 @@ https://user-images.githubusercontent.com/53910337/116009515-cd238000-a637-11eb-
 
   - StopIteration error for torchtext in python ^3.7
 
-- I achieved an accuracy of ~47% on DAN classifier. The notebook is available [here](https://gist.github.com/Mshivam2409/2b1bf7b87474011f8e4b4e2399f826d0) as a example installation of qanta.
+- I achieved an accuracy of ~47% on DAN guesser. The notebook is available [here](https://gist.github.com/Mshivam2409/2b1bf7b87474011f8e4b4e2399f826d0) as a example installation of qanta.
 
 - I tried intergrating with the interface, but I ran into several issues _(also due to abscence of a readme)_ while running the qanta & qb_interface, some were :
 
