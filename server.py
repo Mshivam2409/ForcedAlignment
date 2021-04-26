@@ -38,7 +38,7 @@ def upload_file():
       t = str(request.form['transcript'])
       with open('s3/text/{}.txt'.format(id),'w+') as file:
           file.write(t)
-      process = subprocess.Popen("bash align.sh s3/txt/{0}.txt s3/audio/{0}.wav data/lang_chain/ s3/faligned/{0}.out.ctm  s3/faligned/{0}.out_phone.ctm  s3/faligned/{0}.out_transid_seq.txt  s3/faligned/{0}.lpf.txt s3/faligned/{0}.vtt".format(id), shell=True, stdout=subprocess.PIPE)
+      process = subprocess.Popen("bash align.sh s3/text/{0}.txt s3/audio/{0}.wav data/lang_chain/ s3/faligned/{0}.out.ctm  s3/faligned/{0}.out_phone.ctm  s3/faligned/{0}.out_transid_seq.txt  s3/faligned/{0}.lpf.txt s3/faligned/{0}.vtt".format(id), shell=True, stdout=subprocess.PIPE)
       process_return = process.stdout.read()
       print(process_return)
       return json.dumps({'success':True}), 201, {'ContentType':'application/json'}
